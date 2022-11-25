@@ -1,8 +1,10 @@
 import { View, Text, Button, Image } from "react-native";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useState } from "react";
+import Register from "./Register";
 
-export default function Home() {
+
+export default function Home(navigation) {
     const [users, setUsers] = useState([]);
 
 
@@ -28,7 +30,8 @@ export default function Home() {
     }
     return (
         <View>
-            <Button title='GetData' onPress={()=>GetData()}/>
+            <Button title='GetData' onPress={()=> GetData()}/>
+            <Button title='Add User' onPress={()=> navigation.navigate("Register")}/>
             {users.map(o=><View>
                 <Image source={{uri:o.avatar}} style={{width:100, height:100}} />
                 <Text>{o.id} - {o.fullname}</Text>
