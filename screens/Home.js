@@ -4,7 +4,7 @@ import { useState } from "react";
 import Register from "./Register";
 
 
-export default function Home(navigation) {
+export default function Home({navigation}) {
     const [users, setUsers] = useState([]);
 
 
